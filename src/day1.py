@@ -19,9 +19,8 @@ def main_a(filepath):
     list2.sort()
     total = 0
     for i, j in zip(list1, list2):
-        print(i, j, abs(j-i))
         total += abs(j-i)
-    print(total) # 2113135
+    return total
 
 def main_b(filepath):
     list1, list2 = read_file(filepath)
@@ -29,8 +28,8 @@ def main_b(filepath):
     # Aggregate list2 and count each distinct value
     count_dict = dict(Counter(list2))
     values_list = [count_dict.get(x,0)*x for x in list1]
-    print(sum(values_list)) # 19097157
+    return sum(values_list)
 
 if __name__ == "__main__":
-    main_a("inputs_2024/day_1_large.txt")
-    main_b("inputs_2024/day_1_large.txt")
+    print(main_a("inputs_2024/day_1_large.txt"))
+    print(main_b("inputs_2024/day_1_large.txt"))
